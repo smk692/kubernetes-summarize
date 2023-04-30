@@ -76,14 +76,14 @@ kubectl scale -f deployment.yaml --replicas=3
 kubectl diff -f deployment.yaml
 
 # 쿠버네티스 오브젝트의 spec을 editor로 편집
-kubectl edit deployment/nginx-deployment: 
+kubectl edit deployment/nginx 
 
 # 로컬 포트는 파드에서 실행 중인 컨테이너 포트로 포워딩
-kubectl port-forward pod/nginx-deployment-{컨테이너id} 8080:80
+kubectl port-forward pod/nginx {컨테이너id} 8080:80
 
 # 현재 실행중인 컨테이너 프로세스에 접속하여 로그 확인
-kubectl attach deployment/nginx-deployment -c nginx
+kubectl attach deployment/nginx -c nginx
 
 # 현재 실행중인 컨테이너 프로세스에 모든 로그 출력 (-f: watch 모드)
-kubectl logs deployment/nginx-deployment -c nginx -f
+kubectl logs deployment/nginx -c nginx -f
 
